@@ -10,6 +10,10 @@ import HelloWorld from './components/HelloWorld.vue'
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
 
+      <div style="margin-top: 1rem; text-align: center;">
+        <van-button type="primary">Vant Button</van-button>
+      </div>
+
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
