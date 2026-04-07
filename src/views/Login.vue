@@ -5,47 +5,49 @@
       <van-icon name="cross" size="24" color="#333" class="close-icon" />
     </div>
 
-    <!-- Logo -->
-    <div class="logo-container">
-      <div class="logo">
-        <div class="shape shape-left"></div>
-        <div class="shape shape-right"></div>
-      </div>
-    </div>
-
-    <!-- Title -->
-    <h1 class="title">欢迎来到行销平台</h1>
-
-    <!-- Form -->
-    <div class="form-container">
-      <div class="input-wrapper">
-        <van-icon name="manager-o" size="20" color="#999" class="input-icon" />
-        <input type="text" placeholder="请输入账号" class="custom-input" v-model="form.account" />
+    <div class="login-content">
+      <!-- Logo -->
+      <div class="logo-container">
+        <div class="logo">
+          <div class="shape shape-left"></div>
+          <div class="shape shape-right"></div>
+        </div>
       </div>
 
-      <div class="input-wrapper">
-        <van-icon name="closed-eye" size="20" color="#999" class="input-icon" />
-        <input type="password" placeholder="请输入密码" class="custom-input" v-model="form.password" />
-        <span class="forgot-text">忘记？</span>
+      <!-- Title -->
+      <h1 class="title">欢迎来到行销平台</h1>
+
+      <!-- Form -->
+      <div class="form-container">
+        <div class="input-wrapper">
+          <van-icon name="manager-o" size="20" color="#999" class="input-icon" />
+          <input type="text" placeholder="请输入账号" class="custom-input" v-model="form.account" />
+        </div>
+
+        <div class="input-wrapper">
+          <van-icon name="closed-eye" size="20" color="#999" class="input-icon" />
+          <input type="password" placeholder="请输入密码" class="custom-input" v-model="form.password" />
+          <span class="forgot-text">忘记？</span>
+        </div>
+
+        <button class="login-btn" @click="handleLogin">登录</button>
+        
+        <div class="register-link">
+          <span>注册</span>
+        </div>
       </div>
 
-      <button class="login-btn" @click="handleLogin">登录</button>
-      
-      <div class="register-link">
-        <span>注册</span>
+      <!-- Footer Agreement -->
+      <div class="footer">
+        <van-checkbox v-model="form.agreed" icon-size="16px" checked-color="#4A8BFF" class="agreement-checkbox">
+          <template #icon="props">
+            <div class="custom-radio" :class="{ 'is-checked': props.checked }">
+              <div class="radio-inner" v-if="props.checked"></div>
+            </div>
+          </template>
+          <span class="agreement-text">阅读并同意 <a href="#">《用户协议》</a>和<a href="#">《隐私政策》</a></span>
+        </van-checkbox>
       </div>
-    </div>
-
-    <!-- Footer Agreement -->
-    <div class="footer">
-      <van-checkbox v-model="form.agreed" icon-size="16px" checked-color="#4A8BFF" class="agreement-checkbox">
-        <template #icon="props">
-          <div class="custom-radio" :class="{ 'is-checked': props.checked }">
-            <div class="radio-inner" v-if="props.checked"></div>
-          </div>
-        </template>
-        <span class="agreement-text">阅读并同意 <a href="#">《用户协议》</a>和<a href="#">《隐私政策》</a></span>
-      </van-checkbox>
     </div>
   </div>
 </template>
@@ -87,6 +89,15 @@ const handleLogin = () => {
   position: relative;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   box-sizing: border-box;
+  align-items: center; /* Center content horizontally */
+}
+
+.login-content {
+  width: 100%;
+  max-width: 400px; /* Limit width for desktop */
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 /* Header */
@@ -94,6 +105,8 @@ const handleLogin = () => {
   padding-top: 54px; /* Account for status bar */
   display: flex;
   align-items: center;
+  width: 100%;
+  max-width: 400px;
 }
 
 .close-icon {
@@ -278,5 +291,36 @@ const handleLogin = () => {
 .agreement-text a {
   color: #4a8bff;
   text-decoration: none;
+}
+
+/* Media Queries for Desktop / Tablet */
+@media (min-width: 768px) {
+  .login-page {
+    justify-content: center;
+    background-color: transparent;
+    padding: 40px;
+  }
+
+  .header {
+    display: none; /* Hide mobile header on desktop */
+  }
+
+  .login-content {
+    background-color: #ffffff;
+    padding: 60px 48px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    flex: none; /* Do not stretch to full height */
+    min-height: auto;
+  }
+
+  .logo-container {
+    margin-top: 0;
+  }
+
+  .footer {
+    margin-top: 60px;
+    padding-bottom: 0;
+  }
 }
 </style>

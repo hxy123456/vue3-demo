@@ -10,14 +10,12 @@ import { RouterView } from 'vue-router'
 body {
   margin: 0;
   padding: 0;
-  background-color: #eaf1fa; /* Added a light blue background for the out-of-phone area to mimic the design mockup's background */
+  background-color: #f4f7fb; /* Light background for desktop */
 }
 #app {
-  max-width: 414px; /* Mobile width */
-  margin: 0 auto;
+  width: 100%;
   min-height: 100vh;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
-  background-color: #fff;
+  background-color: transparent;
   overflow-x: hidden;
 }
 </style>
