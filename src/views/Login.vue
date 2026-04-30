@@ -54,7 +54,10 @@
 
 <script setup>
 import { reactive } from 'vue';
+import { useRouter } from 'vue-router';
 import { showToast } from 'vant';
+
+const router = useRouter();
 
 const form = reactive({
   account: '',
@@ -76,6 +79,7 @@ const handleLogin = () => {
     return;
   }
   showToast('登录成功');
+  router.push('/home');
 };
 </script>
 
